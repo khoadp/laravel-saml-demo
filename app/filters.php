@@ -48,21 +48,6 @@ Route::filter('auth', function()
 	}
 });
 
-Route::filter('sso', function()
-{
-    if (!\Session::has('auth0__user_info'))
-    {
-        if (Request::ajax())
-        {
-            return Response::make('Unauthorized', 401);
-        }
-        else
-        {
-            return Redirect::guest('sso');
-        }
-    }
-});
-
 
 Route::filter('auth.basic', function()
 {

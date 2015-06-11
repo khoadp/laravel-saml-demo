@@ -13,9 +13,7 @@ class UserController extends BaseController {
 
     public function profile()
     {
-        $userInfo = Session::get('userInfo');
-
-        return $this->layout->nest('content', 'user.profile', compact('userInfo'));
+        return $this->layout->nest('content', 'user.profile');
     }
 
 } 

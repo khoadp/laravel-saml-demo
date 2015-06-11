@@ -20,7 +20,7 @@ class CreateUserTable extends Migration {
             $table->string('last_name');
             $table->string('email');
             $table->string('issuer');
-            $table->string('idp_user_id');
+            $table->rememberToken();
             $table->timestamps();
         });
 	}

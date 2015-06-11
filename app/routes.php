@@ -15,6 +15,6 @@ Route::get('/', array('as' => 'home.index', 'uses' => 'HomeController@index'));
 
 Route::get('/sso', array('as' => 'sso.login', 'uses' => 'SsoController@login'));
 
-Route::get('/profile', array('as' => 'user.profile', 'uses' => 'UserController@profile' , 'before' => 'sso'));
+Route::get('/profile', array('as' => 'user.profile', 'uses' => 'UserController@profile' , 'before' => 'auth'));
 
 Route::get('/sso/logout', array('as' => 'sso.logout', 'uses' => 'SsoController@logout'));

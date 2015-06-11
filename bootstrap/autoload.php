@@ -16,6 +16,10 @@ define('LARAVEL_START', microtime(true));
 
 require __DIR__.'/../vendor/autoload.php';
 
+require __DIR__ . '/../app/library/saml/lib/_autoload.php';
+
+//require __DIR__ . '/../app/library/saml/lib/_autoload_modules.php';
+
 /*
 |--------------------------------------------------------------------------
 | Include The Compiled Class File

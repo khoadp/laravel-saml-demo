@@ -59,7 +59,7 @@
                         <a href="#">Contact</a>
                     </li>
                     <li>
-                        @if(Session::has('auth0__user_info'))
+                        @if(Auth::check())
                         <a href="/sso/logout">Logout</a>
                         @else
                         <a href="<?php echo route('sso.login') ?>">Login</a>
