@@ -13,23 +13,23 @@ $config = array(
 
     // An authentication source which can authenticate against both SAML 2.0
     // and Shibboleth 1.3 IdPs.
-    'default-sp' => array(
-        'saml:SP',
+    //'default-sp' => array(
+    //    'saml:SP',
 
         // The entity ID of this SP.
         // Can be NULL/unset, in which case an entity ID is generated based on the metadata URL.
-        'entityID' => 'samlsample' ,
+    //    'entityID' => 'samlsample' ,
 
         // The entity ID of the IdP this should SP should contact.
         // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
-        'idp' => 'http://idp.ssocircle.com',
+    //    'idp' => 'http://idp.ssocircle.com',
 
         // The URL to the discovery service.
         // Can be NULL/unset, in which case a builtin discovery service will be used.
-        'discoURL' => null,
+     //   'discoURL' => null,
 
 //        'privatekey' => 'sample.pem',
-        'certificate' => 'sample.crt',
+     //   'certificate' => 'sample.crt',
 
         /*
          * WARNING: SHA-1 is disallowed starting January the 1st, 2014.
@@ -64,7 +64,7 @@ $config = array(
         /*'attributes.required' => array (
             'urn:oid:x.x.x.x',
         ),*/
-    ),
+    //),
 
 
     /*
@@ -389,3 +389,5 @@ $config = array(
     */
 
 );
+
+$config = array_merge($config, include(__DIR__ . '/../../../config/saml-authsources.php'));

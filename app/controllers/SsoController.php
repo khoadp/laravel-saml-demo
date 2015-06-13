@@ -15,12 +15,23 @@ class SsoController extends BaseController {
 
     public function __construct()
     {
+        $this->authSource = Request::get('authSource', 'default-sp');
+
     }
 
     public function login()
     {
         if(!Saml::isAuthenticated()){
-            Saml::login();
+            if(Config::get('saml.ssoType') == 'idp-initiated'){
+                $idp = Config::get("saml-authsources.$this->authSource.idp");
+                $metadataConfig = Config::get("saml-metadata.$idp");
+                //login by idp initiated
+                $ssoUrl = $metadataConfig['SingleSignOnIdpInitUrl'] . '&RelayState=' . URL::current();
+                return \Redirect::to($ssoUrl);
+            } else {
+                //login by sp initiated
+                Saml::login();
+            }
         } else {
             if(!Auth::check()){
                 $attributes = Saml::getAttributes();
