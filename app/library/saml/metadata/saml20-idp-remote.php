@@ -24,6 +24,6 @@ $metadata['https://openidp.feide.no'] = array(
 /*
  * Custom config from Laravel
  */
-include __DIR__ . '/../../../config/saml.php';
+$metadata = array_merge($metadata, include __DIR__ . '/../../../config/saml-metadata.php');
 
 

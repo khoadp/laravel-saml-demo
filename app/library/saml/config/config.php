@@ -759,3 +759,5 @@ $config = array(
     'trusted.url.domains' => null,
 
 );
+
+$config = array_merge($config, include(__DIR__ . '/../../../config/saml.php'));
